@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userSearchFragment">
+
+    <fragment
+        android:id="@+id/userSearchFragment"
+        android:name="ru.mdude21.tutu.presentation.fragments.UserSearchFragment"
+        android:label="UserSearchFragment" >
+        <action
+            android:id="@+id/action_userSearchFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="ru.mdude21.tutu.presentation.fragments.UserInfoFragment"
+        android:label="UserInfoFragment" />
+</navigation>

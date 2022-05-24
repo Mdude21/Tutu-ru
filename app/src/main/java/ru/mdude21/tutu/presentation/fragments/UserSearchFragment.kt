@@ -2,9 +2,7 @@ package ru.mdude21.tutu.presentation.fragments
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,16 +23,20 @@ class UserSearchFragment : Fragment(R.layout.fragment_user_search) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.usersList.observe(viewLifecycleOwner) {
+        viewModel.usersList.observe(viewLifecycleOwner) { it ->
             binding.userList.apply {
                 adapter = userAdapter
                 layoutManager = LinearLayoutManager(requireContext())
             }
             userAdapter.setUserList(it)
-            userAdapter.setOnClickListener {
-                val result = it.login
-                setFragmentResult("requestKey", bundleOf("bundleKey" to result))
-                findNavController().navigate(R.id.action_userSearchFragment_to_userInfoFragment)
+            userAdapter.setOnClickListener { user ->
+                val bundle = Bundle().apply {
+                    putSerializable("user", user)
+                }
+                findNavController().navigate(
+                    R.id.action_userSearchFragment_to_userInfoFragment,
+                    bundle
+                )
             }
         }
 

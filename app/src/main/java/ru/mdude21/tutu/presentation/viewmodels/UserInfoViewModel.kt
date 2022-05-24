@@ -18,7 +18,7 @@ class UserInfoViewModel @Inject constructor(
 
     private val userLiveData = MutableLiveData<User>()
 
-    val user : LiveData<User>
+    val user: LiveData<User>
         get() = userLiveData
 
     private var job: Job? = null

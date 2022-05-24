@@ -5,7 +5,7 @@ import ru.mdude21.tutu.domain.models.UsersItem
 
 interface UsersInfoRepository {
 
-    suspend fun getListUsers(user : String) : List<UsersItem>
+    suspend fun getListUsers(user: String): List<UsersItem>
 
-    suspend fun getUserByLogin(login: String) : User
+    suspend fun getUserByLogin(login: String): User
 }

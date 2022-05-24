@@ -8,7 +8,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import ru.mdude21.tutu.data.remote.GithubApi
 import ru.mdude21.tutu.data.repository.UserInfoRepositoryImpl
-import ru.mdude21.tutu.domain.models.User
 import ru.mdude21.tutu.domain.repository.UsersInfoRepository
 import javax.inject.Singleton
 
@@ -18,7 +17,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesGithubApi() : GithubApi {
+    fun providesGithubApi(): GithubApi {
         return Retrofit.Builder()
             .baseUrl(GithubApi.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
@@ -30,7 +29,7 @@ object AppModule {
     @Singleton
     fun provideUserInfoRepository(
         api: GithubApi
-    ) : UsersInfoRepository {
+    ): UsersInfoRepository {
         return UserInfoRepositoryImpl(api)
     }
 }

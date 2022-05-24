@@ -8,4 +8,4 @@ data class UsersItem(
     val avatar_url: String?,
     val id: Long,
     val login: String
-)
+) : Serializable

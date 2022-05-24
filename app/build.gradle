@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -50,8 +51,13 @@ dependencies {
     def retrofitVersion = '2.9.0'
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+
+    //Serializable
+    def kotlinx_serialization_json_ver = '1.2.2'
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinx_serialization_json_ver"
 
     //Glide
     def glide_version = '4.13.0'

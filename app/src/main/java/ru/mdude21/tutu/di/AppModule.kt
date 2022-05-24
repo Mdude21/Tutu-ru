@@ -5,9 +5,10 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import ru.mdude21.tutu.data.remote.GithubApi
 import ru.mdude21.tutu.data.repository.UserInfoRepositoryImpl
+import ru.mdude21.tutu.domain.models.User
 import ru.mdude21.tutu.domain.repository.UsersInfoRepository
 import javax.inject.Singleton
 
@@ -20,7 +21,7 @@ object AppModule {
     fun providesGithubApi() : GithubApi {
         return Retrofit.Builder()
             .baseUrl(GithubApi.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
             .build()
             .create(GithubApi::class.java)
     }

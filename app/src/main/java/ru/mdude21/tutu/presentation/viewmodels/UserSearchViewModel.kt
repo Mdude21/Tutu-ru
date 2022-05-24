@@ -16,7 +16,7 @@ class UserSearchViewModel @Inject constructor(
     private val repository: UsersInfoRepository
 ) : ViewModel() {
 
-    private val isLoadLiveData = MutableLiveData<Boolean>(false)
+    private val isLoadLiveData = MutableLiveData(false)
 
     val isLoad: LiveData<Boolean>
         get() = isLoadLiveData

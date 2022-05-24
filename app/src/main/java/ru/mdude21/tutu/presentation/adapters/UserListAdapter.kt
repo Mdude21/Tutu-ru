@@ -8,7 +8,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import ru.mdude21.tutu.databinding.ItemUserBinding
 import ru.mdude21.tutu.domain.models.UsersItem
 
-class UserListAdapter() : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
 
     private var users: List<UsersItem> = emptyList()
 
@@ -33,11 +33,20 @@ class UserListAdapter() : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(users[position])
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let { it(users[position]) }
+        }
     }
 
     override fun getItemCount(): Int = users.size
 
     fun setUserList(users: List<UsersItem>) {
         this.users = users
+    }
+
+    private var onItemClickListener: ((UsersItem) -> Unit)? = null
+
+    fun setOnClickListener(listener: (UsersItem) -> Unit) {
+        onItemClickListener = listener
     }
 }

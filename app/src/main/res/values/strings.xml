@@ -2,4 +2,9 @@
     <string name="app_name">Tutu</string>
     <string name="enter_username">Enter username</string>
     <string name="search">Search</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="repositories">Repositories</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
 </resources>

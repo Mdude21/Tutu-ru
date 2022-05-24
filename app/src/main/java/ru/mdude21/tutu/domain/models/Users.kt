@@ -1,9 +1,8 @@
 package ru.mdude21.tutu.domain.models
 
-import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class Users<T>(
-    @SerializedName("users")
-    val users: List<T>
-) : Serializable
+    val items: List<T>
+)

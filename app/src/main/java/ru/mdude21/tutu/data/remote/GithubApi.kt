@@ -3,9 +3,7 @@ package ru.mdude21.tutu.data.remote
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-import ru.mdude21.tutu.domain.models.User
-import ru.mdude21.tutu.domain.models.Users
-import ru.mdude21.tutu.domain.models.UsersItem
+import ru.mdude21.tutu.domain.models.*
 
 interface GithubApi {
     @GET("search/users")
@@ -17,6 +15,11 @@ interface GithubApi {
     suspend fun getInfoUserByLogin(
         @Path("login") login: String
     ): User
+
+    @GET("users/{login}/repos")
+    suspend fun getRepos(
+        @Path("login") login: String
+    ) : List<ReposItem>
 
 
     companion object {

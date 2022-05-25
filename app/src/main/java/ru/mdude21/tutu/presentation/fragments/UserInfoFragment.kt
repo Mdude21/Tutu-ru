@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
@@ -41,6 +42,13 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarInfoFragmentImageView)
             }
+        }
+
+        binding.showReposButton?.setOnClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("user", args.user)
+            }
+            findNavController().navigate(R.id.action_userInfoFragment_to_repoInfoFragment, bundle)
         }
     }
 }

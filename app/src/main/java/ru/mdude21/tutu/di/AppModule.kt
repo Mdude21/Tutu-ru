@@ -9,6 +9,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import ru.mdude21.tutu.data.remote.GithubApi
 import ru.mdude21.tutu.data.repository.UserInfoRepositoryImpl
 import ru.mdude21.tutu.domain.repository.UsersInfoRepository
+import ru.mdude21.tutu.domain.use_cases.GetReposByLogin
 import ru.mdude21.tutu.domain.use_cases.GetUserByLogin
 import ru.mdude21.tutu.domain.use_cases.GetUserList
 import javax.inject.Singleton
@@ -45,5 +46,11 @@ object AppModule {
     @Singleton
     fun provideGetUserByLoginUseCase(repository: UsersInfoRepository): GetUserByLogin {
         return GetUserByLogin(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetReposByLoginUseCase(repository: UsersInfoRepository) : GetReposByLogin {
+        return GetReposByLogin(repository)
     }
 }

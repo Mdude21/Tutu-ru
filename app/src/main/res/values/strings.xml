@@ -7,4 +7,6 @@
     <string name="repositories">Repositories</string>
     <string name="followers">Followers</string>
     <string name="following">Following</string>
+    <string name="show_repositories">Show Repositories</string>
+    <string name="public_string" translatable="false">Public</string>
 </resources>

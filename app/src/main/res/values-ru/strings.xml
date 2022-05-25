@@ -7,4 +7,5 @@
     <string name="repositories">Репозитории</string>
     <string name="followers">Подписчики</string>
     <string name="following">Подписки</string>
+    <string name="show_repositories">Показать репозитории</string>
 </resources>

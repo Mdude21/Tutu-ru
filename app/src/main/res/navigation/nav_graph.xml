@@ -19,5 +19,16 @@
         <argument
             android:name="user"
             app:argType="ru.mdude21.tutu.domain.models.UsersItem" />
+        <action
+            android:id="@+id/action_userInfoFragment_to_repoInfoFragment"
+            app:destination="@id/repoInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoInfoFragment"
+        android:name="ru.mdude21.tutu.presentation.fragments.RepoListFragment"
+        android:label="RepoInfoFragment" >
+        <argument
+            android:name="user"
+            app:argType="ru.mdude21.tutu.domain.models.UsersItem" />
     </fragment>
 </navigation>

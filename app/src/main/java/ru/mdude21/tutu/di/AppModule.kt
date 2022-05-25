@@ -9,6 +9,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import ru.mdude21.tutu.data.remote.GithubApi
 import ru.mdude21.tutu.data.repository.UserInfoRepositoryImpl
 import ru.mdude21.tutu.domain.repository.UsersInfoRepository
+import ru.mdude21.tutu.domain.use_cases.GetUserByLogin
+import ru.mdude21.tutu.domain.use_cases.GetUserList
 import javax.inject.Singleton
 
 @Module
@@ -31,5 +33,17 @@ object AppModule {
         api: GithubApi
     ): UsersInfoRepository {
         return UserInfoRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetUsesListUseCase(repository: UsersInfoRepository): GetUserList {
+        return GetUserList(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetUserByLoginUseCase(repository: UsersInfoRepository): GetUserByLogin {
+        return GetUserByLogin(repository)
     }
 }

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import ru.mdude21.tutu.databinding.ItemUserBinding
 import ru.mdude21.tutu.domain.models.UsersItem
@@ -20,6 +21,7 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
                 Glide.with(itemView)
                     .load(user.avatar_url)
                     .transform(CircleCrop())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarImageView)
             }
         }

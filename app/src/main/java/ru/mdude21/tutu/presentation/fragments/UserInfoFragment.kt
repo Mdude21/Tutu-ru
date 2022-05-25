@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import dagger.hilt.android.AndroidEntryPoint
 import ru.mdude21.tutu.R
@@ -37,6 +38,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
                 Glide.with(view)
                     .load(it.avatar_url)
                     .transform(CircleCrop())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarInfoFragmentImageView)
             }
         }

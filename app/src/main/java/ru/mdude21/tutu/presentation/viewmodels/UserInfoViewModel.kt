@@ -9,11 +9,12 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.mdude21.tutu.domain.models.User
 import ru.mdude21.tutu.domain.repository.UsersInfoRepository
+import ru.mdude21.tutu.domain.use_cases.GetUserByLogin
 import javax.inject.Inject
 
 @HiltViewModel
 class UserInfoViewModel @Inject constructor(
-    private val repository: UsersInfoRepository
+    private val getUserByLogin: GetUserByLogin
 ) : ViewModel() {
 
     private val userLiveData = MutableLiveData<User>()
@@ -27,7 +28,7 @@ class UserInfoViewModel @Inject constructor(
         job?.cancel()
         job = viewModelScope.launch {
             runCatching {
-                repository.getUserByLogin(login)
+                getUserByLogin.execute(login)
             }.onSuccess {
                 userLiveData.postValue(it)
             }.onFailure {

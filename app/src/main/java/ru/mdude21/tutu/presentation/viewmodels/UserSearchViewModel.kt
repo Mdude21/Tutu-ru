@@ -9,11 +9,12 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.mdude21.tutu.domain.models.UsersItem
 import ru.mdude21.tutu.domain.repository.UsersInfoRepository
+import ru.mdude21.tutu.domain.use_cases.GetUserList
 import javax.inject.Inject
 
 @HiltViewModel
 class UserSearchViewModel @Inject constructor(
-    private val repository: UsersInfoRepository
+    private val getUserList: GetUserList
 ) : ViewModel() {
 
     private val isLoadLiveData = MutableLiveData(false)
@@ -33,7 +34,7 @@ class UserSearchViewModel @Inject constructor(
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
             runCatching {
-                repository.getListUsers(user = login)
+                getUserList.execute(user = login)
             }.onSuccess {
                 isLoadLiveData.postValue(false)
                 usersListLiveData.postValue(it)

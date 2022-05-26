@@ -42,12 +42,12 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarInfoFragmentImageView)
 
-                showReposButton?.isEnabled = it.public_repos > 0
+                showReposButton.isEnabled = it.public_repos > 0
             }
         }
 
 
-        binding.showReposButton?.setOnClickListener {
+        binding.showReposButton.setOnClickListener {
             val bundle = Bundle().apply {
                 putSerializable("user", args.user)
             }

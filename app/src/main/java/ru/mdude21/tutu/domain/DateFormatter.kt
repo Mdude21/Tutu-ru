@@ -5,7 +5,7 @@ import java.util.*
 
 class DateFormatter {
 
-    private fun reformatDate(dateTime: String): String {
+    fun reformatDate(dateTime: String): String {
         val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH)
         val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH)
 

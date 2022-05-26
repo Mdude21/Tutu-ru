@@ -9,4 +9,6 @@
     <string name="following">Подписки</string>
     <string name="show_repositories">Показать репозитории</string>
     <string name="found_user">Пользователь не найден</string>
+    <string name="update">" Обновлено"</string>
+    <string name="connection">Интернет-соединение потеряно. Пожалуйста, повторите попытку</string>
 </resources>

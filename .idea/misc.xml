@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/custom_rectangle.xml" value="0.45076923076923076" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.271875" />
-        <entry key="app/src/main/res/layout-land/fragment_user_info.xml" value="0.29270833333333335" />
+        <entry key="app/src/main/res/layout-land/fragment_user_info.xml" value="0.19135802469135801" />
         <entry key="app/src/main/res/layout-land/fragment_user_search.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/fragment_repo_info.xml" value="0.21479229989868287" />

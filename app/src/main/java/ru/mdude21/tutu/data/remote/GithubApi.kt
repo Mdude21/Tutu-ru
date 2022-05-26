@@ -19,8 +19,7 @@ interface GithubApi {
     @GET("users/{login}/repos")
     suspend fun getRepos(
         @Path("login") login: String
-    ) : List<ReposItem>
-
+    ): List<ReposItem>
 
     companion object {
         const val BASE_URL = "https://api.github.com/"

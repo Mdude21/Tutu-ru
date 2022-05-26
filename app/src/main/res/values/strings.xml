@@ -11,4 +11,5 @@
     <string name="public_string" translatable="false">Public</string>
     <string name="found_user">User is not found</string>
     <string name="update">\"Updated at \"</string>
+    <string name="connection">Connection is lost. Please try again</string>
 </resources>

@@ -41,7 +41,7 @@ class UserSearchFragment : Fragment(R.layout.fragment_user_search) {
             }
         }
 
-        viewModel.isFound.observe(viewLifecycleOwner){
+        viewModel.isFound.observe(viewLifecycleOwner) {
             if (!it)
                 Toast.makeText(activity, getString(R.string.found_user), Toast.LENGTH_SHORT).show()
         }
@@ -51,11 +51,13 @@ class UserSearchFragment : Fragment(R.layout.fragment_user_search) {
             binding.searchButton.isEnabled = !it
         }
 
+        viewModel.isConnected.observe(viewLifecycleOwner) {
+            if (!it)
+                Toast.makeText(activity, getString(R.string.connection), Toast.LENGTH_SHORT).show()
+        }
+
         binding.searchButton.setOnClickListener {
             viewModel.getUsersListByLogin(login = binding.searchInputEditText.text.toString())
         }
-
-
     }
-
 }

@@ -50,7 +50,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideGetReposByLoginUseCase(repository: UsersInfoRepository) : GetReposByLogin {
+    fun provideGetReposByLoginUseCase(repository: UsersInfoRepository): GetReposByLogin {
         return GetReposByLogin(repository)
     }
 }

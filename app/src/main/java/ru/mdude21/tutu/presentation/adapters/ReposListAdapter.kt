@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.mdude21.tutu.databinding.ItemRepoBinding
 import ru.mdude21.tutu.domain.DateFormatter
 import ru.mdude21.tutu.domain.models.ReposItem
-import ru.mdude21.tutu.domain.models.UsersItem
 
 class ReposListAdapter() : RecyclerView.Adapter<ReposListAdapter.ViewHolder>() {
 

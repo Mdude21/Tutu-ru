@@ -41,8 +41,11 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
                     .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarInfoFragmentImageView)
+
+                showReposButton?.isEnabled = it.public_repos > 0
             }
         }
+
 
         binding.showReposButton?.setOnClickListener {
             val bundle = Bundle().apply {

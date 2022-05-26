@@ -9,4 +9,6 @@
     <string name="following">Following</string>
     <string name="show_repositories">Show Repositories</string>
     <string name="public_string" translatable="false">Public</string>
+    <string name="found_user">User is not found</string>
+    <string name="update">\"Updated at \"</string>
 </resources>

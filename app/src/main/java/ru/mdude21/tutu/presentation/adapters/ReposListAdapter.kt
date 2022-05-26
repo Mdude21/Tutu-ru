@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.mdude21.tutu.databinding.ItemRepoBinding
+import ru.mdude21.tutu.domain.DateFormatter
 import ru.mdude21.tutu.domain.models.ReposItem
+import ru.mdude21.tutu.domain.models.UsersItem
 
-class ReposListAdapter : RecyclerView.Adapter<ReposListAdapter.ViewHolder>() {
+class ReposListAdapter() : RecyclerView.Adapter<ReposListAdapter.ViewHolder>() {
 
-    private var repos: List<ReposItem> = emptyList()
+    var repos: List<ReposItem> = emptyList()
 
     inner class ViewHolder(private val binding: ItemRepoBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -16,7 +18,7 @@ class ReposListAdapter : RecyclerView.Adapter<ReposListAdapter.ViewHolder>() {
             with(binding) {
                 repoNameTextView.text = repo.name
                 repoLanguageTextView.text = repo.language
-                repoUpdateTextView.text = repo.updated_at
+                repoUpdateTextView.text = DateFormatter().printDate(repo.updated_at!!)
             }
         }
     }
@@ -29,12 +31,21 @@ class ReposListAdapter : RecyclerView.Adapter<ReposListAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(repos[position])
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let { it(repos[position]) }
+        }
     }
 
     override fun getItemCount(): Int = repos.size
 
     fun setReposList(repos: List<ReposItem>) {
         this.repos = repos
+    }
+
+    private var onItemClickListener: ((ReposItem) -> Unit)? = null
+
+    fun setOnClickListener(listener: (ReposItem) -> Unit) {
+        onItemClickListener = listener
     }
 
 }

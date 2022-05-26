@@ -1,8 +1,9 @@
 package ru.mdude21.tutu.presentation.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -16,12 +17,12 @@ import ru.mdude21.tutu.presentation.adapters.ReposListAdapter
 import ru.mdude21.tutu.presentation.viewmodels.RepoListViewModel
 
 @AndroidEntryPoint
-class RepoListFragment: Fragment(R.layout.fragment_repo_info) {
+class RepoListFragment : Fragment(R.layout.fragment_repo_info) {
 
     private val viewModel: RepoListViewModel by viewModels()
     private val binding by viewBinding(FragmentRepoInfoBinding::bind)
     private var repoAdapter = ReposListAdapter()
-    private val args:RepoListFragmentArgs by navArgs()
+    private val args: RepoListFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,6 +42,11 @@ class RepoListFragment: Fragment(R.layout.fragment_repo_info) {
             }
             repoAdapter.setReposList(it)
 
+            repoAdapter.setOnClickListener { reposItem ->
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(reposItem.html_url))
+                startActivity(browserIntent)
+            }
         }
+
     }
 }

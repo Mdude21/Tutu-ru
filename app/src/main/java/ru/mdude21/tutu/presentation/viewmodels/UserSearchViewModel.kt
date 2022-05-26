@@ -29,6 +29,10 @@ class UserSearchViewModel @Inject constructor(
 
     private var searchJob: Job? = null
 
+    private val isFoundLiveData = MutableLiveData(true)
+    val isFound : LiveData<Boolean>
+        get() = isFoundLiveData
+
     fun getUsersListByLogin(login: String) {
         isLoadLiveData.postValue(true)
         searchJob?.cancel()
@@ -38,9 +42,11 @@ class UserSearchViewModel @Inject constructor(
             }.onSuccess {
                 isLoadLiveData.postValue(false)
                 usersListLiveData.postValue(it)
+                isFoundLiveData.postValue(it.isNotEmpty())
             }.onFailure {
                 isLoadLiveData.postValue(false)
                 usersListLiveData.postValue(emptyList())
+                isFoundLiveData.postValue(true)
             }
         }
     }

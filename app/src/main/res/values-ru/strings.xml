@@ -8,4 +8,5 @@
     <string name="followers">Подписчики</string>
     <string name="following">Подписки</string>
     <string name="show_repositories">Показать репозитории</string>
+    <string name="found_user">Пользователь не найден</string>
 </resources>

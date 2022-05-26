@@ -2,6 +2,7 @@ package ru.mdude21.tutu.presentation.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -38,6 +39,11 @@ class UserSearchFragment : Fragment(R.layout.fragment_user_search) {
                     bundle
                 )
             }
+        }
+
+        viewModel.isFound.observe(viewLifecycleOwner){
+            if (!it)
+                Toast.makeText(activity, getString(R.string.found_user), Toast.LENGTH_SHORT).show()
         }
 
         viewModel.isLoad.observe(viewLifecycleOwner) {
